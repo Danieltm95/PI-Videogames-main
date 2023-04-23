@@ -24,7 +24,7 @@ const getGameDetailById = async (id) => {
           });
         
           const gameByIdGenresNames = gameDbById.Genres.map((genre) => genre.name);
-        return  {...gameDbById.toJSON(), Genres: gameByIdGenresNames}
+        return  {...gameDbById.toJSON(), genres: gameByIdGenresNames}
     }
    
 };
@@ -36,7 +36,7 @@ const filteredVideogames = (gameId) => {
                 name: gameId.name,
                 description: gameId.description,
                  platfroms: gameId.platforms.map((e) => e.platform.name),
-                image: gameId.background_image,
+                 background_image: gameId.background_image,
                 released: gameId.released,
                 rating: gameId.rating,
                  genres: gameId.genres.map((e) => e.name)

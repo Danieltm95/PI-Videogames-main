@@ -1,0 +1,25 @@
+.navbar {
+
+}
+
+.container {
+
+}
+
+.links{
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+border-radius: 15px;
+border: 1px solid black;
+
+}
+
+
+.imgLogo {
+
+}
+
+.link{
+
+}

@@ -29,7 +29,14 @@ const getGameByName = async (name) => {
         ],
     });
 
-    // NOW WE ARE GOING TO SEARCH THE API BY NAME
+    const gamesWithGenreStrings = gameByNameDb.map((game) => {
+        const arrayGenreString = game.Genres.map(e => e.name)
+        // console.log( arrayGenreString, 'grenes srtingf', game.name)
+       return {...game.toJSON(), genres: arrayGenreString}
+    //    console.log( game.Genres, 'grenes')
+    })
+
+    // ahora buscamos la api por nombre 
 
     const gameByNameApi = await axios.get(`https://api.rawg.io/api/games?search=${name}&key=${API_KEY}`);
     const gameList = gameByNameApi.data.results;
@@ -49,7 +56,7 @@ const getGameByName = async (name) => {
     if (!gameByNameDb.length === 0 && top15name.length === 0) {
         throw new Error('No se encontro el juego');
     } else {
-        const gamesByNameApiDb = [...gameByNameDb, ...top15name]
+        const gamesByNameApiDb = [...gamesWithGenreStrings, ...top15name]
         console.log(gamesByNameApiDb.length, "gamesByNameApiDb length")
         return gamesByNameApiDb;
     };
@@ -63,7 +70,7 @@ const filteredVideogames = (gameByNameApi) => {
             name: gameByNameApi.name,
             description: gameByNameApi.description,
             platfroms: gameByNameApi.platforms.map((e) => e.platform.name),
-            image: gameByNameApi.background_image,
+            background_image: gameByNameApi.background_image,
             released: gameByNameApi.released,
             rating: gameByNameApi.rating,
             genres: gameByNameApi.genres.map((e) => e.name)

@@ -6,7 +6,7 @@ const { getGameByName } = require('../controllers/getGameByName.js');
 const getVideogames = async (req, res) => {
     try {
         const games = await getGames()
-        console.log(games)
+        
         res.status(200).json(games);
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -17,7 +17,7 @@ const getVideogames = async (req, res) => {
 
 const getVideogameByName = async (req, res) => {
     const  {name}  = req.query;
-    console.log(typeof(name));
+    //console.log(typeof(name));
     try {
         console.log("entro al handler try");
         const gamesByName = await getGameByName(name)
@@ -30,7 +30,7 @@ const getVideogameByName = async (req, res) => {
 
 
 const getVideogameById = async (req, res) => {
-    console.log("ID")
+    //console.log("ID")
     const id = req.params.idVideogame
     console.log(id);
     try {
@@ -44,7 +44,7 @@ const getVideogameById = async (req, res) => {
 
 const postVideogame = async (req, res) => {
     const { name, description, released, rating, background_image, genres, platfroms } = req.body;
-    // console.log(req.body)
+     //console.log(req.body)
     // console.log(genres)
     try {
         console.log('entropost rput');
@@ -56,6 +56,8 @@ const postVideogame = async (req, res) => {
             res.status(200).json(postGame);
         }
     } catch (error) {
+        console.log('quedo malo el post');
+        
         res.status(500).json({ error: error.message });
     }
 };
