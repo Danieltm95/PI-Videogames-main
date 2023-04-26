@@ -1,8 +1,15 @@
 .navbar {
-
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    color: #fff;
+    padding: 10px;
+    z-index: 1; /* Make sure the navbar is above other content */
 }
 
-.container {
+.container{
 
 }
 

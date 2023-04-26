@@ -1,23 +1,40 @@
 import CardContainer from '../../components/CardContainer/CardContainer'
-import styles from './Home.module.css'
+import SearchBar from '../../components/SearchBar/SearchBar'
+import style from './Home.module.css'
 import { useDispatch } from 'react-redux'
 import React, { useEffect } from 'react'
-import { getGames } from '../../redux/actions'
+import { getGames, getGenres, resetByName} from '../../redux/actions'
+import Genre from '../../components/Genres/Genre'
+import Order from '../../components/Order/Order'
+
 
 
 const Home = () => {
-const dispatch = useDispatch()
+  const dispatch = useDispatch()
   //cuando se monte que haga el dispatch para traer todas las cards
-// eslint-disable-next-line
+  
   useEffect(() => {
-    dispatch(getGames());
-    //console.log('dispatch de use efelct')
-  },[dispatch]);
-  return (
-    <div className={styles.container}>
-      <h1>Home</h1>
-      <CardContainer/>
+    dispatch(getGames())
+    dispatch(getGenres());
+    dispatch(resetByName());
+    
+  }, [dispatch]);
+ 
+  
 
+  return (
+    <div className={style.container}>
+
+      <div className={style.containerSearch}>
+        <SearchBar />
+        <Order/>
+      </div>
+      <div className={style.containerGenres}>
+        <Genre />
+      </div>
+      <div className={style.containerCards}>
+        <CardContainer />
+      </div>
     </div>
   )
 }

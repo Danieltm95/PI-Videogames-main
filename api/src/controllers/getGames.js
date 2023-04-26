@@ -31,10 +31,10 @@ const getGames = async () => {
     const apiGamesJoined = apiGames.flat();
     const videogamesApi = filteredVideogames(apiGamesJoined)
     const uniqueVideogamesApi = videogamesApi.filter(
-        (game, index, self) =>
-          index ===
-          self.findIndex((g) => g.id === game.id)
+        (game, index, self ) =>
+          index === self.findIndex((g) => g.id === game.id)
       );
+      
     //database
     const dbGames = await Videogame.findAll(
         {
@@ -56,7 +56,7 @@ const getGames = async () => {
        return {...game.toJSON(), genres: arrayGenreString}
     //    console.log( game.Genres, 'grenes')
     })
-console.log('entre a get games')
+//console.log('entre a get games')
     return [...gamesWithGenreStrings, ...uniqueVideogamesApi]
 };
 

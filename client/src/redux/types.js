@@ -1,3 +1,9 @@
 export const GET_GAMES = 'GET_GAMES';
 export const GET_GAME = 'GET_GAME';
 export const GET_GENRES = 'GET_GENRES';
+export const GET_BY_NAME = 'GET_BY_NAME';
+export const RESET_BY_NAME = 'RESET_BY_NAME';
+export const FILTER_BY_GENRE = 'FILTER_BY_GENRE';
+export const FILTER_ORIGIN = 'FILTER_ORIGIN';
+export const FILTER_BY_AZ = 'FILTER_BY_AZ';
+export const FILTER_BY_RATING = 'FILTER_BY_RATING';

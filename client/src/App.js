@@ -14,7 +14,7 @@ const App = () => {
   const location = useLocation();
   return (
     <>
-      <h1>Henry Videogames</h1>
+      
       {location.pathname !== "/" && <Navbar />}
       <Routes>
         <Route exact path="/" element={<Landing />} />

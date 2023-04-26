@@ -17,7 +17,7 @@ const getVideogames = async (req, res) => {
 
 const getVideogameByName = async (req, res) => {
     const  {name}  = req.query;
-    //console.log(typeof(name));
+    
     try {
         console.log("entro al handler try");
         const gamesByName = await getGameByName(name)

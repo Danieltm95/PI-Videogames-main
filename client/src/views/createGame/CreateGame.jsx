@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getGenres } from '../../redux/actions';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import validate from './formValidations'
 
 const CreateGame = () => {
 
@@ -17,8 +18,21 @@ const CreateGame = () => {
     genres: [],
     released: "",
   })
-console.log(form)
-  
+  //console.log(form)
+
+  const [errors, setErrors] = useState({
+    name: "",
+    description: "",
+    background_image: "",
+    rating: "",
+    platfroms: [],
+    genres: [],
+    released: "",
+  })
+
+
+  const genres = useSelector(state => state.genres)
+
   const handleCheckboxChange = (event) => {
     const genre = event.target.value;
     const isChecked = event.target.checked;
@@ -47,9 +61,15 @@ console.log(form)
       ...form,
       [e.target.name]: e.target.value
     });
-  };
 
-  const genres = useSelector(state => state.genres)
+    setErrors(validate({
+      ...form,
+      [e.target.name]: e.target.value
+    })
+    );
+
+  };
+  //console.log(errors,"errores")
 
 
 
@@ -70,12 +90,33 @@ console.log(form)
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('/videogames', form)
-    alert("Juego creado con exito")
-    navigate('/home')
+    //console.log(errors.genres, 'gernes en erros submit')
+    //console.log(form.genres, 'gernes en forms submit')
+    if (form.genres.length === 0 ) {
+      //console.log(errors.genres, 'gernes en erros submit IF')
+      
+      setErrors({
+        ...errors,
+        genres: "Seleciona por lo menos un genero"
+      })
+    } 
+    
+    if (form.platfroms.length === 0 ) {
+
+      setErrors({
+        ...errors,
+        platfroms: "Ingresa por lo menos una plataforma",
+      })
+    } 
+    if( form.platfroms.length !== 0 && form.genres.length !== 0  ){
+      axios.post('/videogames', form)
+      alert("Juego creado con exito")
+      navigate('/home')
+    }
+
 
   }
-  console.log(form.genres)
+  // console.log(form.genres)
 
 
 
@@ -97,6 +138,7 @@ console.log(form)
             value={form.name}
             onChange={handleInputChange}
           />
+          <span className={style.error}>{errors.name ? errors.name : " "}</span>
 
 
           <label className={style.labels}>
@@ -110,6 +152,7 @@ console.log(form)
             onChange={handleInputChange}
             value={form.description}
           />
+          <span className={style.error}>{errors.description ? errors.description : " "}</span>
 
 
           <label className={style.labels}>
@@ -126,6 +169,7 @@ console.log(form)
           <button className={style.button} type="button" onClick={handleAddPlatform}>
             Agrega Plataforma
           </button>
+          <span className={style.error}>{errors.platfroms ? errors.platfroms : " "}</span>
 
 
           <label className={style.labels}>
@@ -139,6 +183,7 @@ console.log(form)
             onChange={handleInputChange}
             value={form.background_image}
           />
+          <span className={style.error}>{errors.background_image ? errors.background_image : " "}</span>
 
 
           <label className={style.labels}>
@@ -152,6 +197,7 @@ console.log(form)
             onChange={handleInputChange}
             value={form.released}
           />
+          <span className={style.error}>{errors.released ? errors.released : " "}</span>
 
           <label className={style.labels}>
             Rating:
@@ -159,11 +205,12 @@ console.log(form)
           <input
             className={style.input}
             placeholder="rating"
-            type="text"
+            type="number"
             name="rating"
             onChange={handleInputChange}
             value={form.rating}
           />
+          <span className={style.error}>{errors.rating ? errors.rating : " "}</span>
 
           <label className={style.labels} >
             Generos:
@@ -182,6 +229,7 @@ console.log(form)
                 <label htmlFor={genre}>{genre}</label>
               </div>
             ))}
+          <span className={style.error}>{errors.genres ? errors.genres : " "}</span>
 
         </div>
         <div>
