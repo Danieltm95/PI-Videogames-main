@@ -1,20 +1,35 @@
 .container{
+   
     display: flex;
-    flex-direction: row;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+}
+
+/* .containerCards{
+    display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     width: 100%;
-    height: 4em;
-    margin-top: 100px;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+} */
+
+.containerFuncionales{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1em;
+    margin-top: 1em;
 }
 
-.containerCards{
-
-}
-
-.containerSearch{
-    
-}
-
-.containerGenres{
-    
-}
+/* .containerGenres{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1em;
+} */

@@ -24,26 +24,30 @@ const Order = () => {
 
 
   return (
-    <div className={style.container}>
+    // <div className={style.container}>
         <div className={style.elegir}>
-            <label className={style.label}>
-                Ordenar por:
-            </label>
+            
+            
             <button className={style.button} onClick={() => handleDbApi(true)}>
                 Juegos Propios!
             </button>
+            <span className={style.span}></span>
             <button className={style.button} onClick={() => handleDbApi(false)}>
                 Juegos Existentes!
             </button>
+            <span className={style.span}></span>
             <button className={style.button} onClick={() => handleAZ(true)}>
                 A a Z!
             </button>
+            <span className={style.span}></span>
             <button className={style.button} onClick={() => handleAZ(false)}>
                 Z a A!
             </button>
+            <span className={style.span}></span>
             <button className={style.button} onClick={() => handleRating(true)}>
                 Best Rating!
             </button>
+            <span className={style.span}></span>
             <button className={style.button} onClick={() => handleRating(false)}>
                 Least Rating!
             </button>
@@ -51,7 +55,7 @@ const Order = () => {
             
 
         </div>
-    </div>
+    // </div>
   )
 }
 

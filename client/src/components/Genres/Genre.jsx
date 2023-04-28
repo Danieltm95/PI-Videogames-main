@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {style}  from './Genre.module.css';
+import style  from './Genre.module.css';
 import { filterByGenre } from '../../redux/actions';
 
 
@@ -20,6 +20,7 @@ const dispatch = useDispatch()
                     <button 
                     key={index} 
                     onClick={() => handleFilter(genre)}
+                    className={style.button}
                     >
                     {genre}
                     </button>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import style  from './Navbar.module.css'
+import logo from '../../helper/logo.png'
 
 const Navbar = () => {
 const navigate = useNavigate();
@@ -8,24 +9,34 @@ const navigate = useNavigate();
     navigate('/home');
     window.location.reload();
   }
+  function handleAbout() {
+    navigate('/about');
+    window.location.reload();
+  }
+  function handleCreate() {
+    navigate('/create');
+    window.location.reload();
+  }
   return (
-    <nav className={style.navbar}>
-      <div className={style.container}>
-        <div className={style.links}>
-          <Link  className={style.imgLogo} onClick={handleNavHome} >
-            {/* <img src="https://i.ibb.co/0Xz3WfL/Logo-ML.png" alt="Logo" width="70px" /> */}
-            <h1>Videogameslogo</h1>
-          </Link>
-          <Link  className={style.link} onClick={handleNavHome} >Home</Link>
-          <Link to="/about" className={style.link}>About</Link>
-          <Link to="/create" className={style.link}>Post a Videogame</Link>
-          
-        </div>
-
+    <header className={style.header}>
+      <div>
+        <Link   onClick={handleNavHome} ><img src={logo} className={style.imgLogo}alt="Logo" />
+        </Link>
       </div>
-      
-    </nav>
+      <div className={style.headerHandle}>
+      <button className={style.button} onClick={handleNavHome}>Home</button>
+      <span className={style.span}></span>
+      <button className={style.button} onClick={handleAbout}>About Me!</button>
+      <span className={style.span}></span>
+      <button className={style.button} onClick={handleCreate}>Post a Videogame!</button>
+      <div className={style.nav}></div>
+      </div>
+
+    </header>
   )
 }
 
 export default Navbar
+
+
+

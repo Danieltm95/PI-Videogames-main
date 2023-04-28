@@ -1,19 +1,73 @@
+.loader {
+  margin: auto;
+  border: 20px solid #EAF0F6;
+  border-radius: 50%;
+  border-top: 20px solid #9e9d9d;
+  width: 200px;
+  height: 200px;
+  animation: spinner 4s linear infinite;
+}
+
+@keyframes spinner {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+
+
+
 .container{
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    width: 100%;
-    height: 4em;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.5em;
+    margin-right: 1em;
+    margin-left: 1em;  
 }
 
 .cards{
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    width: 100%;
-    height: 4em; 
-    gap: 3em;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 1.5em;
 }
 .loading{
     
+}
+.paginadoContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1em 0;
+}
+
+.paginado{
+    display: inline-block;
+    padding: 0.5em 1em;
+    border-radius: 8px;
+    font-weight: 200;
+    background-color: rgb(255, 251, 244);
+    border: 1px solid #cecdcd;
+    color: var(--black3);
+    font-size: 1em;
+    line-height: 1;
+    margin: 0.2em;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.paginado:hover,
+.paginado:focus {
+  background-color: white;
+}
+
+.paginado .active {
+  background-color: #06af1c;
+  border-color: #049918f3;
+  color: #fff;
 }
