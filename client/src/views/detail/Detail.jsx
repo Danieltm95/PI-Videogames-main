@@ -25,7 +25,7 @@ const Detail = () => {
         <div className={style.imagenContainer}>
           <img className={style.img} src={game.background_image} alt={game.name} />
         </div>
-        
+
 
 
         <div className={style.infoContainer}>
@@ -36,7 +36,7 @@ const Detail = () => {
             </div>
             <hr class={style.line} />
             <h3>Description:</h3>
-            <div className={style.description} dangerouslySetInnerHTML={{__html: game.description}}></div>
+            <div className={style.description} dangerouslySetInnerHTML={{ __html: game.description }}></div>
             <hr class={style.line} />
             <p className={style.released}>Release Date: {game.released}</p>
             {!game.platfroms || game.platfroms.length === 0 ? (
