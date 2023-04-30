@@ -8,7 +8,7 @@ import Detail from './views/detail/Detail'
 import About from './views/about/About'
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
-axios.defaults.baseURL = 'http://localhost:3001/';
+axios.defaults.baseURL = 'https://pi-videogames-main-production-3885.up.railway.app/';
 
 const App = () => {
   const location = useLocation();
