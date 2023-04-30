@@ -24,7 +24,7 @@ const Order = () => {
 
 
   return (
-    // <div className={style.container}>
+    
         <div className={style.elegir}>
             
             
@@ -55,7 +55,7 @@ const Order = () => {
             
 
         </div>
-    // </div>
+    
   )
 }
 
