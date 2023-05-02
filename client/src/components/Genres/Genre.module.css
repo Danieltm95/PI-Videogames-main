@@ -7,6 +7,7 @@
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 12px;
     font-size: 14px;
     border: 0.5px solid #d3d3d3;
+    width: 80%
 }
 .container:hover{
     box-shadow: rgba(0, 0, 0, 0.18) 0px 1px 12px;
